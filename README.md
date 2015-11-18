@@ -1,4 +1,4 @@
 # demo-flowrouter
 mwc demo with flowrouter as the default router
 
-[DEMO](http://mwc-flow.meteor.com)
+<a href="http://mwc-flow.meteor.com" target="_blank">DEMO</a>
