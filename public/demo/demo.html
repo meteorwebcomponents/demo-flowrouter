@@ -1,25 +1,53 @@
-
-<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="name-tag.html">
 <dom-module id="demo-route1">
 
 
-	<template>
+  <template>
 
-	<p>mwc demo using flowrouter - Page 1 Route "/" </p>
-	<div>MWC - meteor web components.</div>
-	<div>
-		<a href="/edit">Go to edit route.</a>
-	</div>
-</template>
+    <style>
+.code{
+  font-style:italic;
+  font-size:1.1em;
+  background: #eee
+}
+    </style>
 
-	<script>
+    <p>mwc demo using flowrouter
+    </p>
+    <p>Route	name : <span class="code">{{route.current.route.name}}</span>
+    path:
+    <span class="code">{{route.current.path}}</span> 
+    </p>
+    <div>MWC - meteor web components.</div>
+    <div>
+      <div> <a href="{{route.next.path}}">Go to {{nextRoute}} route.</a><div>
+    </div>
+  </template>
+
+  <script>
 Polymer({
-	is: "demo-route1",
-	properties: {
-	}
+  is: "demo-route1",
+  properties: {
+    nextRoute:{
+      type:String,
+      value:'edit'
+    },
+    route:{
+      type:Object,
+      computed:'getRoute(nextRoute)'
+    }
+  },
+  getRoute : function(nextRoute){
+    var route =  {};
+    route.current =	FlowRouter.current();
+    route.next = {};
+    route.next.path= FlowRouter.path(nextRoute);
+    route.next.name =  FlowRouter.getRouteName(nextRoute);
+    return route;
+  }
 });
-	</script>
+  </script>
 
 
 </dom-module>
@@ -27,22 +55,49 @@ Polymer({
 
 <dom-module id="demo-route2">
 
+  <template>
+    <style>
+.code{
+  font-style:italic;
+  font-size:1.1em;
+  background: #eee
+}
+    </style>
 
+    <p>mwc demo using flowrouter
+    </p>
+    <p>Route	name : <span class="code">{{route.current.route.name}}</span>
+    path:
+    <span class="code">{{route.current.path}}</span> 
+    </p>
+    <name-tag owner="mwc.org"></name-tag>
+      <div> <a href="{{route.next.path}}">Go to {{nextRoute}} route.</a><div>
+  </template>
 
-	<template>
-
-	<p>mwc demo using flowrouter - Page 2 Route "/edit" </p>
-<name-tag owner="mwc.org"></name-tag>
-<a href="/">Go back to Home route</a>
-</template>
-
-	<script>
+  <script>
 Polymer({
-	is: "demo-route2",
-	properties: {
-	}
+  is: "demo-route2",
+  properties: {
+    nextRoute:{
+      type:String,
+      value:'landing'
+    },
+    route:{
+      type:Object,
+      computed:'getRoute(nextRoute)'
+    }
+  },
+  getRoute : function(nextRoute){
+    var route =  {};
+    route.current =	FlowRouter.current();
+    route.next = {};
+    route.next.path= FlowRouter.path(nextRoute);
+    route.next.name =  FlowRouter.getRouteName(nextRoute);
+    return route;
+  }
+
 });
-	</script>
+  </script>
 
 
 </dom-module>
