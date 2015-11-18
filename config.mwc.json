@@ -3,7 +3,10 @@
 		"index.html"
 	],
 	"import": [
-		"bower_components/polymer/polymer.html"
+		"demo/demo.html"
 	]
-	,"root": ".polymer"
+	,"root": "public"
+
 }
+   
+                                                      
