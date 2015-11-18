@@ -8,7 +8,7 @@ FlowRouter.route("/", {
 FlowRouter.route("/edit", {
 	name:'edit',
 	action:function(params,queryParams){
-		mwcLayout.render('demo-landing',{region:{"main":"demo-route2"}});
+		mwcLayout.render('demo-edit',{region:{"main":"demo-route2"}});
 		console.log('reached /edit');
 	}
 });
