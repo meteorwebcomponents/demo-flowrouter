@@ -1,106 +1,67 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="name-tag.html">
 <dom-module id="demo-route1">
-
-
   <template>
-
     <style>
-.code{
-  font-style:italic;
-  font-size:1.1em;
-  background: #eee
+.main{
+  @apply(--layout-horizontal);
+  @apply(--layout-center-center);
 }
     </style>
-
-    <p>mwc demo using flowrouter
-    </p>
-    <p>Route	name : <span class="code">{{route.current.route.name}}</span>
-    path:
-    <span class="code">{{route.current.path}}</span> 
-    </p>
-    <div>MWC - meteor web components.</div>
-    <div>
-      <div> <a href="{{route.next.path}}">Go to {{nextRoute}} route.</a><div>
+    <paper-tooltip for="region1" position="top">Region : main</paper-tooltip>
+    <div class="flex main">
+      <paper-card heading="MWC demo Using FlowRouter" id="region1">
+        <div class="card-content">
+          <div> You are in Home page </div>
+          <div>MWC - meteor web components.</div>
+        </div>
+        <div class="card-actions">
+          <paper-button on-click="nextRoute">Go to Edit</paper-button>
+        </div>
+      </paper-card>
     </div>
   </template>
-
   <script>
 Polymer({
   is: "demo-route1",
-  properties: {
-    nextRoute:{
-      type:String,
-      value:'edit'
-    },
-    route:{
-      type:Object,
-      computed:'getRoute(nextRoute)'
-    }
-  },
-  getRoute : function(nextRoute){
-    var route =  {};
-    route.current =	FlowRouter.current();
-    route.next = {};
-    route.next.path= FlowRouter.path(nextRoute);
-    route.next.name =  FlowRouter.getRouteName(nextRoute);
-    return route;
+  nextRoute:function(){
+    FlowRouter.go("/edit")
   }
 });
   </script>
-
-
 </dom-module>
-
-
 <dom-module id="demo-route2">
-
   <template>
     <style>
-.code{
-  font-style:italic;
-  font-size:1.1em;
-  background: #eee
+.main{
+  @apply(--layout-horizontal);
+  @apply(--layout-center-center);
 }
     </style>
-
-    <p>mwc demo using flowrouter
-    </p>
-    <p>Route	name : <span class="code">{{route.current.route.name}}</span>
-    path:
-    <span class="code">{{route.current.path}}</span> 
-    </p>
-    <name-tag owner="mwc.org"></name-tag>
-      <div> <a href="{{route.next.path}}">Go to {{nextRoute}} route.</a><div>
+    <paper-tooltip for="region2" position="bottom">Region : main | Page : Edit</paper-tooltip>
+    <div class="flex main">
+      <paper-card heading="MWC demo Using FlowRouter" id="region2">
+        <div class="card-content">
+          <div class="">
+            You are now in edit Page
+          </div>
+          <name-tag></name-tag>
+          <div>MWC - meteor web components.</div>
+        </div>
+        <div class="card-actions">
+          <paper-button on-click="nextRoute">
+           Go to Home
+          </paper-button>
+        </div>
+      </paper-card>
+    </div>
   </template>
-
   <script>
 Polymer({
   is: "demo-route2",
-  properties: {
-    nextRoute:{
-      type:String,
-      value:'landing'
-    },
-    route:{
-      type:Object,
-      computed:'getRoute(nextRoute)'
-    }
-  },
-  ready:function(){
-  },
-  getRoute : function(nextRoute){
-    var route =  {};
-    route.current =	FlowRouter.current();
-    route.next = {};
-    route.next.path= FlowRouter.path(nextRoute);
-    route.next.name =  FlowRouter.getRouteName(nextRoute);
-    return route;
+  nextRoute:function(){
+    FlowRouter.go('landing');
   }
-
 });
   </script>
-
-
 </dom-module>
-

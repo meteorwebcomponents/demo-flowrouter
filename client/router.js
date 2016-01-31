@@ -15,7 +15,7 @@ FlowRouter.route("/", {
 FlowRouter.route("/edit", {
   name:'edit',
   action:function(params,queryParams){
-    mwcLayout.render('demo-edit',{"main":"demo-route2","footer":"demo-footer"});
+    mwcLayout.render('demo-edit',{"main":"demo-route2","header":"demo-header"});
     console.log('reached /edit');
   }
 });
