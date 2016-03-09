@@ -1,19 +1,22 @@
 {
-  "append": [
-    "index.html"
-
-  ],
-  "import": [
-    "demo/demo.html",
-    "demo/name-tag.html",
-    "demo/header.html",
-    "bower_components/mwc-layout/mwc-layout.html",
-
-    "bower_components/font-roboto/roboto.html",
-    "bower_components/iron-elements/iron-elements.html",
-    "bower_components/paper-elements/paper-elements.html",
-    "bower_components/polymer/polymer.html"
-
-  ],
-  "root": ".polymer"
+    "append": [
+        "index.html"
+    ],
+    "import": [
+        "demo/demo.html",
+        "demo/name-tag.html",
+        "demo/header.html",
+        "bower_components/mwc-layout/mwc-layout.html",
+        "bower_components/font-roboto/roboto.html",
+        "bower_components/iron-elements/iron-elements.html",
+        "bower_components/paper-elements/paper-elements.html",
+        "bower_components/polymer/polymer.html"
+    ],
+    "root": ".polymer",
+    "extensions": {
+        "mwc:ecmascript@1.0.10": {
+            "compileFunction": "MWCEcmascript",
+            "log": false
+        }
+    }
 }

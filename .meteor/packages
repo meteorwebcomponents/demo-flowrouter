@@ -5,11 +5,8 @@
 # but you can also edit it by hand.
 
 mobile-experience       # Packages for a great mobile UX
-es5-shim                # ECMAScript 5 compatibility for older browsers.
-ecmascript              # Enable ECMAScript2015+ syntax in app code
 autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
-blaze-html-templates    # Compile .html files into Meteor Blaze views
 check
 http
 jquery                  # Helpful client-side library
@@ -22,4 +19,14 @@ tracker                 # Meteor's client-side reactive programming library
 kadira:flow-router
 momentjs:moment
 reactive-var
+
+
 mwc:compiler
+mwc:extensions
+
+mwc:ecmascript
+
+
+
+
+mwc-compiler
