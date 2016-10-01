@@ -1,3 +1,5 @@
+>## This project is deprecated go to https://github.com/aruntk/kickstart-meteor-polymer
+
 # demo-flowrouter
 
 mwc demo with flowrouter as the default router
